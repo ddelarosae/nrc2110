@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, jsonify
+from mensaje import mensajes
 import yagmail
 import utils
 import os
@@ -10,7 +11,7 @@ def index():
 @app.route('/login', methods=('GET','POST'))
 def login():
     try:
-        return render_template('success.html')
+        return jsonify(mensajes)
     except:
         return render_template('error.html')
 
